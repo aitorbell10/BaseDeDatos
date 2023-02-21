@@ -167,7 +167,7 @@ public class DatabaseHandler : MonoBehaviour
     public void GuardarJSON(User user)
     {
         string json = JsonUtility.ToJson(user, true);
-        byte[] JasonEcriptado = Encrypt (json);
+        byte[] JasonEcriptado = Encrypt(json);
 
         StreamWriter writer = new StreamWriter(Application.dataPath + "/JsonGuardado/" + user.Nombre, false);
         writer.BaseStream.Write(JasonEcriptado, 0, JasonEcriptado.Length);

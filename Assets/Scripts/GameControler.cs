@@ -34,7 +34,7 @@ public class GameControler : MonoBehaviour
 	{
 		usuario.Puntuacion++;
 		marcador.text = usuario.Puntuacion.ToString();
-		
+
 	}
 
 	void Registrarse()
@@ -45,39 +45,39 @@ public class GameControler : MonoBehaviour
 			return;
 		}
 		bool resultado = db.Registrar(nicknameField.text, passwordField.text);
-		if(resultado)
-        {
+		if (resultado)
+		{
 			mensajeExito.text = "Usuario registrado, inicie sesión";
-        }
+		}
 		else
-        {
+		{
 			mensajeExito.text = "Usuario ya registrado";
 		}
 
 	}
 
 	void IniciarSesion()
-    {
+	{
 		usuario = db.IniciarSesion(nicknameField.text, passwordField.text);
-		if(usuario != null)
-        {
+		if (usuario != null)
+		{
 			clicker.SetActive(true);
 			mensajeExito.text = "Has iniciado sesión como " + usuario.Nombre;
 			marcador.text = usuario.Puntuacion.ToString();
 		}
 		else
-        {
+		{
 			mensajeExito.text = "Usuario o contraseña incorrecto";
-        }
+		}
 
-    }
+	}
 
 	void Guardar()
-    {
+	{
 
 		db.GuardarDatosDB(usuario);
 		db.GuardarJSON(usuario);
 		mensajeExito.text = "Guardado con éxito";
 	}
-	
+
 }

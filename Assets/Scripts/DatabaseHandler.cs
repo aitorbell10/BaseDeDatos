@@ -145,7 +145,7 @@ public class DatabaseHandler : MonoBehaviour
         string sqlQuery = String.Format("UPDATE User SET score = \"{0}\" WHERE id = \"{1}\"",
             user.Puntuacion,
             user.ID);
-        
+
         dbCommand.CommandText = sqlQuery;
         try
         {
